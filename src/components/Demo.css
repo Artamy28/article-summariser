@@ -1,0 +1,137 @@
+section {
+	margin-top: 4rem;
+	width: 100%;
+	max-width: 36rem;
+}
+
+section div {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 0.5rem;
+}
+
+section div form {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.link-icon {
+	position: absolute;
+	left: 0px;
+	margin: 0.5rem 0.75rem 0.5rem 0.75rem;
+	width: 1.25rem;
+}
+
+.url-input {
+	display: block;
+	width: 100%;
+	border-radius: 0.375rem;
+	border-width: 1px;
+	@apply border-gray-200 bg-white;
+
+	@apply py-2.5 pl-10 pr-12;
+	@apply text-sm shadow-lg font-satoshi font-medium;
+}
+
+.url-input:focus {
+	@apply border-black outline-none ring-0;
+}
+
+.submit-button {
+	position: absolute;
+	display: flex;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	margin: 0.375rem;
+	width: 2.5rem;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25rem;
+	border-width: 1px;
+	@apply border-gray-200;
+	@apply font-sans text-sm font-medium text-gray-400;
+}
+
+.submit-button:hover {
+	@apply border-gray-700 text-gray-700;
+}
+
+.url-input:focus ~ .submit-button {
+	@apply border-gray-700 text-gray-700;
+}
+
+.url-history {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	max-height: 15rem;
+	overflow-y: auto;
+}
+
+.link-card {
+	padding: 0.75rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+	gap: 0.75rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	@apply bg-white border border-gray-200;
+}
+
+.copy-button {
+	@apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.copy-button img {
+	width: 40%;
+	height: 40%;
+	object-fit: contain;
+}
+
+.history-link {
+	flex: 1 1 0%;
+	font-family: Satoshi, sans-serif;
+	@apply text-blue-700 font-medium text-sm truncate;
+}
+
+.results {
+	@apply my-10 max-w-full flex justify-center items-center;
+}
+
+.loading {
+	width: 5rem;
+	height: 5rem;
+	object-fit: contain;
+}
+
+.error-message {
+	@apply font-inter font-bold text-black text-center;
+}
+
+.error-data {
+	@apply font-satoshi font-normal text-gray-700;
+}
+
+.summary {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.summary-header {
+	@apply font-satoshi font-bold text-gray-600 text-xl;
+}
+
+.blue-gradient {
+	@apply font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+.summary-box {
+	@apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
+}
