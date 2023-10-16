@@ -50,11 +50,11 @@ const Demo = () => {
 				setIsFetching(false);
 				setError(null);
 
-				console.log(summary);
-
 				console.log("im here");
-				const newArticle = { ...article, summary: summary };
+				const newArticle = { ...article, summary: data2.summary };
 				const updatedAllArticles = [newArticle, ...allArticles];
+				console.log(newArticle);
+				console.log(updatedAllArticles);
 
 				setArticle(newArticle);
 				setAllArticles(updatedAllArticles);
@@ -68,29 +68,6 @@ const Demo = () => {
 	};
 
 	useEffect(() => {
-		// Set example article summaries
-		const exampleArticle1 = {
-			url: "https://www.bbc.co.uk/news/education-66895259",
-			summary:
-				'UK Prime Minister Rishi Sunak is reportedly considering a reform of the school system in England that could introduce a new qualification called the "British baccalaureate." The plans may include making the study of maths and English compulsory until the age of 18. However, no final decision has been made, and the proposed changes to A-levels are expected to be controversial. The Labour Party has criticized the proposals as an "undeliverable gimmick," while the government denies that Sunak is seeking radical proposals for political gain. Sunak had previously suggested the idea of a new baccalaureate qualification during his leadership campaign last year and has expressed his desire for all young people to study maths until the age of 18. The Education Policy Institute has called for a new baccalaureate qualification to replace A-levels, stating that A-levels are too narrow and dominant in secondary education. The proposed British baccalaureate would offer a broader curriculum, covering academic, applied, and technical subjects. Education is devolved in Scotland, Wales, and Northern Ireland, so decisions regarding educational reforms are made by the devolved governments in each nation. The proposal for England is being referred to as a British baccalaureate to distinguish it from the existing English baccalaureate at the GCSE level. However, concerns have been raised about the potential impact on teacher recruitment and retention, as well as the increased workload for teachers. The government is already implementing the rollout of T-levels, a new vocational qualification, and has plans to facilitate the study of maths until the age of 18.',
-		};
-
-		const exampleArticle2 = {
-			url: "https://www.example.com/",
-			summary:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget est sed neque pellentesque consequat. Mauris ut varius orci. Fusce congue ante ac vestibulum scelerisque. Sed nibh mauris, venenatis vitae consequat eget, sollicitudin sed risus. Nam congue id orci in lobortis. Maecenas ornare congue turpis in porta. In scelerisque, velit vitae sagittis faucibus, ex risus consectetur nibh, et facilisis nisi nisl vitae nunc. Nullam fermentum, mi vel malesuada porta, odio ligula ultrices elit, vitae sagittis ante massa pellentesque erat. Cras interdum risus nunc, sed euismod velit auctor volutpat. Duis placerat cursus odio non tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce maximus est velit, in imperdiet eros volutpat sed. Donec eu purus sapien. Donec erat ex, elementum ut sem a, egestas consequat ligula. In eget enim ante. Nam eu vehicula dolor, sodales tempus dui. Nulla tempus, neque id sollicitudin facilisis, nisi est auctor leo, et blandit eros mauris sed metus. Donec tincidunt, justo eu ultrices elementum, magna nibh dignissim quam, nec convallis erat nulla non odio. In luctus auctor pretium. Quisque lacinia sapien ac tortor congue rhoncus. Phasellus non elit maximus, dictum erat id, rutrum dolor. Pellentesque sed vestibulum orci.",
-		};
-
-		const originalAllArticles = [
-			exampleArticle1,
-			exampleArticle2,
-			...allArticles,
-		];
-
-		setAllArticles(originalAllArticles);
-		localStorage.setItem("articles", JSON.stringify(originalAllArticles));
-		// End set example article summaries
-
 		const articlesFromLocalStorage = JSON.parse(
 			localStorage.getItem("articles")
 		);
@@ -121,6 +98,18 @@ const Demo = () => {
 		setCopied(copyUrl);
 		navigator.clipboard.writeText(copyUrl);
 		setTimeout(() => setCopied(false), 2000);
+	};
+
+	const exampleArticle1 = {
+		url: "https://www.bbc.co.uk/news/education-66895259",
+		summary:
+			'UK Prime Minister Rishi Sunak is reportedly considering a reform of the school system in England that could introduce a new qualification called the "British baccalaureate." The plans may include making the study of maths and English compulsory until the age of 18. However, no final decision has been made, and the proposed changes to A-levels are expected to be controversial. The Labour Party has criticized the proposals as an "undeliverable gimmick," while the government denies that Sunak is seeking radical proposals for political gain. Sunak had previously suggested the idea of a new baccalaureate qualification during his leadership campaign last year and has expressed his desire for all young people to study maths until the age of 18. The Education Policy Institute has called for a new baccalaureate qualification to replace A-levels, stating that A-levels are too narrow and dominant in secondary education. The proposed British baccalaureate would offer a broader curriculum, covering academic, applied, and technical subjects. Education is devolved in Scotland, Wales, and Northern Ireland, so decisions regarding educational reforms are made by the devolved governments in each nation. The proposal for England is being referred to as a British baccalaureate to distinguish it from the existing English baccalaureate at the GCSE level. However, concerns have been raised about the potential impact on teacher recruitment and retention, as well as the increased workload for teachers. The government is already implementing the rollout of T-levels, a new vocational qualification, and has plans to facilitate the study of maths until the age of 18.',
+	};
+
+	const exampleArticle2 = {
+		url: "https://www.example.com/",
+		summary:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget est sed neque pellentesque consequat. Mauris ut varius orci. Fusce congue ante ac vestibulum scelerisque. Sed nibh mauris, venenatis vitae consequat eget, sollicitudin sed risus. Nam congue id orci in lobortis. Maecenas ornare congue turpis in porta. In scelerisque, velit vitae sagittis faucibus, ex risus consectetur nibh, et facilisis nisi nisl vitae nunc. Nullam fermentum, mi vel malesuada porta, odio ligula ultrices elit, vitae sagittis ante massa pellentesque erat. Cras interdum risus nunc, sed euismod velit auctor volutpat. Duis placerat cursus odio non tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce maximus est velit, in imperdiet eros volutpat sed. Donec eu purus sapien. Donec erat ex, elementum ut sem a, egestas consequat ligula. In eget enim ante. Nam eu vehicula dolor, sodales tempus dui. Nulla tempus, neque id sollicitudin facilisis, nisi est auctor leo, et blandit eros mauris sed metus. Donec tincidunt, justo eu ultrices elementum, magna nibh dignissim quam, nec convallis erat nulla non odio. In luctus auctor pretium. Quisque lacinia sapien ac tortor congue rhoncus. Phasellus non elit maximus, dictum erat id, rutrum dolor. Pellentesque sed vestibulum orci.",
 	};
 
 	return (
@@ -169,6 +158,49 @@ const Demo = () => {
 							<p className="history-link">{item.url}</p>
 						</div>
 					))}
+
+					<div
+						onClick={() => {
+							setArticle(exampleArticle1);
+							setError(null);
+						}}
+						className="link-card"
+					>
+						<div
+							className="copy-button"
+							onClick={() => handleCopy(exampleArticle1.url)}
+						>
+							<img
+								src={copied === exampleArticle1.url ? tick : copy}
+								alt="copy_icon"
+							/>
+						</div>
+						<p className="history-link">{exampleArticle1.url}</p>
+					</div>
+
+					<div
+						onClick={() => {
+							const exampleArticle2 = {
+								url: "https://www.example.com/",
+								summary:
+									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget est sed neque pellentesque consequat. Mauris ut varius orci. Fusce congue ante ac vestibulum scelerisque. Sed nibh mauris, venenatis vitae consequat eget, sollicitudin sed risus. Nam congue id orci in lobortis. Maecenas ornare congue turpis in porta. In scelerisque, velit vitae sagittis faucibus, ex risus consectetur nibh, et facilisis nisi nisl vitae nunc. Nullam fermentum, mi vel malesuada porta, odio ligula ultrices elit, vitae sagittis ante massa pellentesque erat. Cras interdum risus nunc, sed euismod velit auctor volutpat. Duis placerat cursus odio non tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce maximus est velit, in imperdiet eros volutpat sed. Donec eu purus sapien. Donec erat ex, elementum ut sem a, egestas consequat ligula. In eget enim ante. Nam eu vehicula dolor, sodales tempus dui. Nulla tempus, neque id sollicitudin facilisis, nisi est auctor leo, et blandit eros mauris sed metus. Donec tincidunt, justo eu ultrices elementum, magna nibh dignissim quam, nec convallis erat nulla non odio. In luctus auctor pretium. Quisque lacinia sapien ac tortor congue rhoncus. Phasellus non elit maximus, dictum erat id, rutrum dolor. Pellentesque sed vestibulum orci.",
+							};
+							setArticle(exampleArticle2);
+							setError(null);
+						}}
+						className="link-card"
+					>
+						<div
+							className="copy-button"
+							onClick={() => handleCopy(exampleArticle2.url)}
+						>
+							<img
+								src={copied === exampleArticle2.url ? tick : copy}
+								alt="copy_icon"
+							/>
+						</div>
+						<p className="history-link">{exampleArticle2.url}</p>
+					</div>
 				</div>
 			</div>
 
