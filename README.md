@@ -1,5 +1,6 @@
 # article-summariser
 A website where you can submit articles to get summarised using RapidAPI
+
 Built using React, TailwindCSS, JS, RapidAPI, and Netlify
 
 Checkout the website at:
